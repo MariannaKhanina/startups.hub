@@ -1,0 +1,24 @@
+{
+    "people": [{
+        "id": "person1",
+        "name": "Иванов Иван Иванович",
+        "skills": [
+            "html", "css", "js"
+        ],
+        "description": "Краткая биография Ивана"
+    },{
+        "id": "person2",
+        "name": "Светова Светлана Сергеевна",
+        "skills": [
+            "java", "html"
+        ],
+        "description": "Краткая биография Светланы"
+    },{
+        "id": "person3",
+        "name": "Николаев Никола Николаевич",
+        "skills": [
+            "react", "node.js"
+        ],
+        "description": "Краткая биография Николая"
+    }]
+}
