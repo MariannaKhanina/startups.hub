@@ -10,4 +10,8 @@ abstract class Entity {
   final String name;
   final List<String> skills;
   final String? description;
+
+  static parseSkills(List<dynamic> json) {
+    return List.from(json).map((item) => item as String).toList();
+  }
 }

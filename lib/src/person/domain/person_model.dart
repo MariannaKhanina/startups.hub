@@ -20,12 +20,8 @@ class Person implements Entity {
     return Person(
       id: json['id'],
       name: json['name'],
-      skills: Person.parseSkills(json['skills']),
+      skills: Entity.parseSkills(json['skills']),
       description: json['description'],
     );
-  }
-
-  static parseSkills(List<dynamic> json) {
-    return List.from(json).map((item) => item as String).toList();
   }
 }

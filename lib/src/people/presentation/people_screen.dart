@@ -40,6 +40,7 @@ class _PeopleScreenState extends State<PeopleScreen> {
         );
       },
     );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Участники'),

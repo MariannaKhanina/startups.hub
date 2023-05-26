@@ -1,0 +1,34 @@
+{
+    "projects": [
+        {
+            "id": "project1",
+            "name": "Проект 1",
+            "skills": ["html", "css", "js"],
+            "description": "Описание первого проекта"
+        },
+        {
+            "id": "project2",
+            "name": "Проект 2",
+            "skills": ["html", "css", "js"],
+            "description": "Описание второго проекта"
+        },
+        {
+            "id": "project3",
+            "name": "Проект 3",
+            "skills": ["html", "css", "js"],
+            "description": "Описание третьего проекта"
+        },
+        {
+            "id": "project4",
+            "name": "Проект 4",
+            "skills": ["html", "css", "js"],
+            "description": "Описание четвертого проекта"
+        },
+        {
+            "id": "project5",
+            "name": "Проект 5",
+            "skills": ["html", "css", "js"],
+            "description": "Описание пятого проекта"
+        }
+    ]
+}

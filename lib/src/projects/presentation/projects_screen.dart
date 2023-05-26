@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:startupshub/src/projects/project_model.dart';
-import 'package:startupshub/src/projects/projects_api.dart';
+import 'package:startupshub/src/projects/data/projects_repository.dart';
+import 'package:startupshub/src/projects/domain/project_model.dart';
+import 'package:startupshub/src/projects/presentation/projects_list.dart';
 
 class ProjectsScreen extends StatefulWidget {
   const ProjectsScreen({super.key});
@@ -10,39 +11,41 @@ class ProjectsScreen extends StatefulWidget {
 }
 
 class _ProjectsScreenState extends State<ProjectsScreen> {
-  late List<Project> _projectsData;
+  late Future<List<Project>> _futureProjects;
 
   @override
   void initState() {
-    final ProjectsApi projectsApi = ProjectsApi();
+    final ProjectsRepository repository = ProjectsRepository();
 
-    _projectsData = projectsApi.fetchProjects();
+    _futureProjects = repository.getProjects();
 
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    final Widget body = FutureBuilder<List<Project>>(
+      future: _futureProjects,
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return ProjectsList(
+            projectsData: snapshot.data!,
+          );
+        } else if (snapshot.hasError) {
+          return Text(snapshot.error.toString());
+        }
+
+        return const Center(
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Проекты'),
       ),
-      body: Column(
-        children: [
-          Expanded(
-            child: ListView.builder(
-              itemCount: _projectsData.length,
-              itemBuilder: (context, index) {
-                final Project project = _projectsData[index];
-                return ProjectTile(
-                  title: project.name,
-                  skills: project.skills,
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+      body: body,
     );
   }
 }
