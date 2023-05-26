@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startupshub/src/people/presentation/people_list_item.dart';
-import 'package:startupshub/src/people/domain/person_model.dart';
+import 'package:startupshub/src/person/domain/person_model.dart';
 
 class PeopleList extends StatelessWidget {
   const PeopleList({
@@ -16,8 +16,7 @@ class PeopleList extends StatelessWidget {
       itemBuilder: (context, index) {
         final Person person = peopleData[index];
         return PeopleListItem(
-          title: person.name,
-          skills: person.skills,
+          personData: person,
         );
       },
     );

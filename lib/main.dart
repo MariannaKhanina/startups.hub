@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startupshub/src/people/presentation/people_screen.dart';
-import 'package:startupshub/src/projects/projects_screen.dart';
+import 'package:startupshub/src/projects/presentation/projects_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,7 +35,6 @@ class App extends StatelessWidget {
           children: <Widget>[
             const Icon(
               Icons.logo_dev_outlined,
-              //color: Colors.purpleAccent,
               size: 50,
             ),
             Text(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:startupshub/src/people/presentation/people_list.dart';
 import 'package:startupshub/src/people/data/people_repository.dart';
-import 'package:startupshub/src/people/domain/person_model.dart';
+import 'package:startupshub/src/person/domain/person_model.dart';
 
 class PeopleScreen extends StatefulWidget {
   const PeopleScreen({super.key});

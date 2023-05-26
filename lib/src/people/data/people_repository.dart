@@ -1,5 +1,5 @@
 import 'package:startupshub/src/people/data/people_api.dart';
-import 'package:startupshub/src/people/domain/person_model.dart';
+import 'package:startupshub/src/person/domain/person_model.dart';
 
 class PeopleRepository {
   PeopleRepository() {
