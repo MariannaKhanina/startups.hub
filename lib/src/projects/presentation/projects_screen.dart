@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:startupshub/src/projects/data/projects_repository.dart';
-import 'package:startupshub/src/projects/domain/project_model.dart';
+import 'package:startupshub/src/project/domain/project_model.dart';
 import 'package:startupshub/src/projects/presentation/projects_list.dart';
 
 class ProjectsScreen extends StatefulWidget {

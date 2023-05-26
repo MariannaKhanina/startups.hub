@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:startupshub/src/person/presentation/skills.dart';
-import 'package:startupshub/src/projects/domain/project_model.dart';
+import 'package:startupshub/src/common_widgets/skills.dart';
+import 'package:startupshub/src/project/domain/project_model.dart';
+import 'package:startupshub/src/project/presentation/project_screen.dart';
 
 class ProjectsListItem extends StatelessWidget {
   const ProjectsListItem({
@@ -25,11 +26,11 @@ class ProjectsListItem extends StatelessWidget {
           child: Icon(Icons.art_track_outlined),
         ),
         onTap: () {
-          // Navigator.of(context).push(MaterialPageRoute(
-          //   builder: (context) => PersonScreen(
-          //     personData: personData,
-          //   ),
-          // ));
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => ProjectScreen(
+              projectData: projectData,
+            ),
+          ));
         },
       ),
     );

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:startupshub/src/person/domain/person_model.dart';
+import 'package:startupshub/src/project/domain/project_model.dart';
 import 'package:startupshub/src/common_widgets/skills.dart';
 
-class PersonScreen extends StatelessWidget {
-  const PersonScreen({
+class ProjectScreen extends StatelessWidget {
+  const ProjectScreen({
     super.key,
-    required this.personData,
+    required this.projectData,
   });
-  final Person personData;
+  final Project projectData;
 
   @override
   Widget build(BuildContext context) {
-    final String name = personData.name;
-    final List<String> skills = personData.skills;
-    final String? description = personData.description;
+    final String name = projectData.name;
+    final List<String> skills = projectData.skills;
+    final String? description = projectData.description;
 
     return Scaffold(
       appBar: AppBar(
@@ -35,7 +35,7 @@ class PersonScreen extends StatelessWidget {
               const CircleAvatar(
                 minRadius: 30,
                 child: Icon(
-                  Icons.person_2_outlined,
+                  Icons.art_track_outlined,
                   size: 50,
                 ),
               ),

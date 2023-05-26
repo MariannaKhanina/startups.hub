@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:startupshub/src/person/domain/person_model.dart';
 import 'package:startupshub/src/person/presentation/person_screen.dart';
-import 'package:startupshub/src/person/presentation/skills.dart';
+import 'package:startupshub/src/common_widgets/skills.dart';
 
 class PeopleListItem extends StatelessWidget {
   const PeopleListItem({
