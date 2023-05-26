@@ -1,3 +1,4 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:startupshub/src/projects/data/projects_api.dart';
 import 'package:startupshub/src/project/domain/project_model.dart';
 
@@ -15,3 +16,6 @@ class ProjectsRepository {
     return projectsList.map((item) => Project.fromJson(item)).toList();
   }
 }
+
+final projectsRepositoryProvider =
+    Provider<ProjectsRepository>((ref) => ProjectsRepository());

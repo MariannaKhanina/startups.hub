@@ -1,44 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:startupshub/src/common_widgets/custom_progress_indicator.dart';
+import 'package:startupshub/src/people/data/people_future_provider.dart';
 import 'package:startupshub/src/people/presentation/people_list.dart';
-import 'package:startupshub/src/people/data/people_repository.dart';
 import 'package:startupshub/src/person/domain/person_model.dart';
 
-class PeopleScreen extends StatefulWidget {
+class PeopleScreen extends ConsumerWidget {
   const PeopleScreen({super.key});
 
   @override
-  State<PeopleScreen> createState() => _PeopleScreenState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final AsyncValue<List<Person>> asyncPeopleData =
+        ref.watch(peopleFutureProvider);
 
-class _PeopleScreenState extends State<PeopleScreen> {
-  late Future<List<Person>> _futurePeople;
-
-  @override
-  void initState() {
-    final PeopleRepository repository = PeopleRepository();
-
-    _futurePeople = repository.getPeople();
-
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final Widget body = FutureBuilder<List<Person>>(
-      future: _futurePeople,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return PeopleList(
-            peopleData: snapshot.data!,
-          );
-        } else if (snapshot.hasError) {
-          return Text(snapshot.error.toString());
-        }
-
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
+    final Widget body = asyncPeopleData.when(
+      data: (data) => PeopleList(
+        peopleData: data,
+      ),
+      error: ((error, stackTrace) => Text(error.toString())),
+      loading: () => const CustomProgressIndicator(),
     );
 
     return Scaffold(
