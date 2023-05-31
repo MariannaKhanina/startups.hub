@@ -11,7 +11,7 @@ class ProjectsScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AsyncValue<Projects?> asyncProjectsData =
-        ref.watch(projectsNotifierProvider);
+        ref.watch(projectsControllerProvider);
 
     final Widget body = asyncProjectsData.when(
       data: (data) => ProjectsList(

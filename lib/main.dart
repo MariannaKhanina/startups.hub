@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:startupshub/src/common_widgets/bg_gradient.dart';
 import 'package:startupshub/src/people/presentation/people_screen.dart';
 import 'package:startupshub/src/projects/presentation/projects_screen.dart';
 
@@ -31,45 +32,70 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Icon(
-              Icons.logo_dev_outlined,
-              size: 50,
-            ),
-            Text(
-              'Название приложения',
-              style: Theme.of(context).textTheme.displayLarge!,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const PeopleScreen(),
-                    ));
-                  },
-                  child: const Text('Участники'),
+    return BgGradient(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const Padding(
+                padding: EdgeInsets.only(
+                  top: 100,
+                  bottom: 70,
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const ProjectsScreen(),
-                    ));
-                  },
-                  child: const Text('Проекты'),
+                child: Icon(
+                  Icons.logo_dev_outlined,
+                  size: 100,
+                  color: Colors.white,
                 ),
-              ],
-            )
-          ],
+              ),
+              Text(
+                'Название приложения',
+                style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                      color: Colors.white,
+                    ),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
+                height: 70,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.purple[900]),
+                        foregroundColor:
+                            const MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const PeopleScreen(),
+                      ));
+                    },
+                    child: const Text('Участники'),
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  TextButton(
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStatePropertyAll(Colors.purple[900]),
+                        foregroundColor:
+                            const MaterialStatePropertyAll(Colors.white)),
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const ProjectsScreen(),
+                      ));
+                    },
+                    child: const Text('Проекты'),
+                  ),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

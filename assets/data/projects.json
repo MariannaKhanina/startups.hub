@@ -4,31 +4,36 @@
             "id": "project1",
             "name": "Проект 1",
             "skills": ["html", "css", "js"],
-            "description": "Описание первого проекта"
+            "description": "Описание первого проекта",
+            "peopleIds": ["person1", "person3"]
         },
         {
             "id": "project2",
             "name": "Проект 2",
             "skills": ["html", "css", "js"],
-            "description": "Описание второго проекта"
+            "description": "Описание второго проекта",
+            "peopleIds": ["person3"]
         },
         {
             "id": "project3",
             "name": "Проект 3",
             "skills": ["html", "css", "js"],
-            "description": "Описание третьего проекта"
+            "description": "Описание третьего проекта",
+            "peopleIds": []
         },
         {
             "id": "project4",
             "name": "Проект 4",
             "skills": ["html", "css", "js"],
-            "description": "Описание четвертого проекта"
+            "description": "Описание четвертого проекта",
+            "peopleIds": ["person1"]
         },
         {
             "id": "project5",
             "name": "Проект 5",
             "skills": ["html", "css", "js"],
-            "description": "Описание пятого проекта"
+            "description": "Описание пятого проекта",
+            "peopleIds": ["person2"]
         }
     ]
 }

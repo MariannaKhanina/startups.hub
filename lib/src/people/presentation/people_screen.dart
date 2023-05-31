@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:startupshub/src/common_widgets/bg_gradient.dart';
 import 'package:startupshub/src/common_widgets/custom_progress_indicator.dart';
 import 'package:startupshub/src/people/domain/people_model.dart';
 import 'package:startupshub/src/people/presentation/people_controller.dart';
@@ -21,16 +22,22 @@ class PeopleScreen extends ConsumerWidget {
       loading: () => const CustomProgressIndicator(),
     );
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Участники'),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: body,
-          ),
-        ],
+    return BgGradient(
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBar(
+          title: const Text('Участники'),
+        ),
+        body: Column(
+          children: [
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: body,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

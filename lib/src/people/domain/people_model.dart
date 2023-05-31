@@ -6,4 +6,9 @@ class People {
   });
 
   final List<Person> list;
+
+  List<Person> getPeopleByIds(List<String> peopleIds) {
+    if (list.isEmpty) return [];
+    return list.where((person) => peopleIds.contains(person.id)).toList();
+  }
 }

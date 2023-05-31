@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:startupshub/src/common_widgets/entities_buttons.dart';
+import 'package:startupshub/src/person/domain/person_model.dart';
 import 'package:startupshub/src/project/domain/project_model.dart';
 import 'package:startupshub/src/common_widgets/skills.dart';
 
@@ -14,6 +16,7 @@ class ProjectScreen extends StatelessWidget {
     final String name = projectData.name;
     final List<String> skills = projectData.skills;
     final String? description = projectData.description;
+    final List<Person> people = projectData.people;
 
     return Scaffold(
       appBar: AppBar(
@@ -52,6 +55,22 @@ class ProjectScreen extends StatelessWidget {
                 ),
               ),
               if (description != null) Text(description),
+              if (people.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 30),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          'В проекте участвуют:',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
+                      EntitiesButtons<Person>(entitiesList: people)
+                    ],
+                  ),
+                ),
             ],
           ),
         ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:startupshub/src/common_widgets/entities_buttons.dart';
 import 'package:startupshub/src/person/domain/person_model.dart';
 import 'package:startupshub/src/common_widgets/skills.dart';
 import 'package:startupshub/src/project/domain/project_model.dart';
-import 'package:startupshub/src/project/presentation/project_screen.dart';
 
 class PersonScreen extends StatelessWidget {
   const PersonScreen({
@@ -67,25 +67,7 @@ class PersonScreen extends StatelessWidget {
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: projects
-                            .map(
-                              (project) => Padding(
-                                padding: const EdgeInsets.all(5),
-                                child: ElevatedButton(
-                                  onPressed: () => Navigator.of(context)
-                                      .push(MaterialPageRoute(
-                                    builder: (context) => ProjectScreen(
-                                      projectData: project,
-                                    ),
-                                  )),
-                                  child: Text(project!.name),
-                                ),
-                              ),
-                            )
-                            .toList(),
-                      ),
+                      EntitiesButtons<Project>(entitiesList: projects)
                     ],
                   ),
                 ),
