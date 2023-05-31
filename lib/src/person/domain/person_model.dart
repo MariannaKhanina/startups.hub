@@ -1,4 +1,5 @@
 import 'package:startupshub/src/entity_model.dart';
+import 'package:startupshub/src/project/domain/project_model.dart';
 
 class Person implements Entity {
   Person({
@@ -6,6 +7,7 @@ class Person implements Entity {
     required this.name,
     required this.skills,
     this.description,
+    this.projectsIds = const <String>[],
   });
   @override
   final String id;
@@ -15,6 +17,8 @@ class Person implements Entity {
   final List<String> skills;
   @override
   final String? description;
+  final List<String> projectsIds;
+  List<Project> projects = [];
 
   factory Person.fromJson(Map<String, dynamic> json) {
     return Person(
@@ -22,6 +26,7 @@ class Person implements Entity {
       name: json['name'],
       skills: Entity.parseSkills(json['skills']),
       description: json['description'],
+      projectsIds: Entity.parseIds(json['projects']),
     );
   }
 }

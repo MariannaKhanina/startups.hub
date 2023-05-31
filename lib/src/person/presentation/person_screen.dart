@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:startupshub/src/person/domain/person_model.dart';
 import 'package:startupshub/src/common_widgets/skills.dart';
+import 'package:startupshub/src/project/domain/project_model.dart';
+import 'package:startupshub/src/project/presentation/project_screen.dart';
 
 class PersonScreen extends StatelessWidget {
   const PersonScreen({
@@ -14,6 +16,7 @@ class PersonScreen extends StatelessWidget {
     final String name = personData.name;
     final List<String> skills = personData.skills;
     final String? description = personData.description;
+    final List<Project?> projects = personData.projects;
 
     return Scaffold(
       appBar: AppBar(
@@ -52,6 +55,40 @@ class PersonScreen extends StatelessWidget {
                 ),
               ),
               if (description != null) Text(description),
+              if (projects.isNotEmpty)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 30),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: Text(
+                          'Участвует в проектах:',
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: projects
+                            .map(
+                              (project) => Padding(
+                                padding: const EdgeInsets.all(5),
+                                child: ElevatedButton(
+                                  onPressed: () => Navigator.of(context)
+                                      .push(MaterialPageRoute(
+                                    builder: (context) => ProjectScreen(
+                                      projectData: project,
+                                    ),
+                                  )),
+                                  child: Text(project!.name),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
+                    ],
+                  ),
+                ),
             ],
           ),
         ),

@@ -13,7 +13,12 @@ class Skills extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: mainAxisAlignment!,
-      children: skillsData.map((skill) => Text('#$skill ')).toList(),
+      children: skillsData
+          .map((skill) => Text(
+                '#$skill ',
+                style: Theme.of(context).textTheme.labelLarge,
+              ))
+          .toList(),
     );
   }
 }

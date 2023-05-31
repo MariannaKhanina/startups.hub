@@ -5,20 +5,23 @@
         "skills": [
             "html", "css", "js"
         ],
-        "description": "Краткая биография Ивана"
+        "description": "Краткая биография Ивана",
+        "projects": ["project1", "project4"]
     },{
         "id": "person2",
         "name": "Светова Светлана Сергеевна",
         "skills": [
             "java", "html"
         ],
-        "description": "Краткая биография Светланы"
+        "description": "Краткая биография Светланы",
+        "projects": ["project5"]
     },{
         "id": "person3",
         "name": "Николаев Никола Николаевич",
         "skills": [
             "react", "node.js"
         ],
-        "description": "Краткая биография Николая"
+        "description": "Краткая биография Николая",
+        "projects": ["project2", "project1"]
     }]
 }
