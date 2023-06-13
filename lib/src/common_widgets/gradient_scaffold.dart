@@ -15,7 +15,16 @@ class GradientScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return BgGradient(
       child: Theme(
-        data: Theme.of(context).copyWith(colorScheme: const ColorScheme.dark()),
+        data: Theme.of(context).copyWith(
+            colorScheme: const ColorScheme.dark(),
+            textTheme: TextTheme(
+              bodyLarge: TextStyle(
+                color: Theme.of(context)
+                    .copyWith(brightness: Brightness.dark)
+                    .colorScheme
+                    .onPrimary,
+              ),
+            )),
         child: Scaffold(
           backgroundColor: Colors.transparent,
           appBar: title != null

@@ -4,8 +4,8 @@ import 'package:startupshub/src/common_widgets/logo.dart';
 import 'package:startupshub/src/people/presentation/people_screen.dart';
 import 'package:startupshub/src/projects/presentation/projects_screen.dart';
 
-class App extends StatelessWidget {
-  const App({super.key});
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
